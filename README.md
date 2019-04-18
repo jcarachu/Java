@@ -1,2 +1,2 @@
 # Java
-Data Structures &amp; Algorithms in depth review
+My Data Structures &amp; Algorithms practice and review.
