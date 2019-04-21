@@ -11,7 +11,7 @@ public class LinkedQueue<E> implements Iterable<E> {
 	private Entry<E> last;
 	
 	/**
-	 * entry class for linked list class
+	 * entry class for linked list implementation
 	 */
 	private static class Entry<E> {
 		private E element;
