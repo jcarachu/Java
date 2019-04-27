@@ -11,6 +11,10 @@ My Data Structures &amp; Algorithms practice and review.
 		- SeparateChaining
    - Searching
    		- SequentialSearch
+		- SortedArray
 		- BinarySearchTrees
 			- Unbalanced
-			- Balanced
+   - Sorting
+   		- Insertion
+		- Selection
+		- Merge
