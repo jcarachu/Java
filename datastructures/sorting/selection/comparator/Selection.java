@@ -1,6 +1,7 @@
 /**
  * The Selection class for sorting an array using selection sort
  */
+import java.util.Comparator;
 public class Selection <T extends Comparator<T>> {
 	/**
 	 * Rearranges the array in ascending order using natural order
@@ -26,8 +27,9 @@ public class Selection <T extends Comparator<T>> {
 	}
 
 	/****************************************************************
-	 * Sorting functions 						*						    ****************************************************************/
-	/** 
+	 * Sorting functions 						*						    
+	****************************************************************/
+	/**
 	 * Check if v < w
 	 */
 	private boolean less(T comparator, T v, T w)
@@ -46,7 +48,8 @@ public class Selection <T extends Comparator<T>> {
 	}
 	
 	/****************************************************************
-	 * Sorting check						*						    ****************************************************************/
+	 * Sorting check						*						    
+	 ****************************************************************/
 	/**
 	 * is the array sorted
 	 */
@@ -67,8 +70,9 @@ public class Selection <T extends Comparator<T>> {
 	}
 	
 	/****************************************************************
-	 * Sorting display 						*						    ****************************************************************/
-	private void show(Comparator arr[])
+	 * Sorting display 						*						    
+	 ****************************************************************/
+	private void show(T arr[])
 	{
 		for (int i = 0; i < arr.length; i++)
 			System.out.println(arr[i]);

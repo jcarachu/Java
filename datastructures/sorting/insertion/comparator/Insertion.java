@@ -3,6 +3,7 @@
  * The implemention makes ~ 1/2 n^2 compares and exchanges in the worst case
  * The sorting algorithm is stable and uses O(1) space
  */
+import java.util.Comparator;
 public class Insertion<T extends Comparator<T>> {
 	
 	public Insertion() {}
