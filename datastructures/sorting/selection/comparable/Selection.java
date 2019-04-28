@@ -1,5 +1,10 @@
 /**
  * The Selection class for sorting an array using selection sort
+ * n exchanges, quadratic in best case
+ * Not stable but In-Place sort.
+ * Worst: (1/2) n^2
+ * Average: (1/4) n^2
+ * Best: n
  */
 public class Selection <T extends Comparable<T>> {
 	/**

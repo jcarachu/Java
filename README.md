@@ -15,6 +15,7 @@ My Data Structures &amp; Algorithms practice and review.
 		- BinarySearchTrees
 			- Unbalanced
    - Sorting
+		- Bubble
    		- Insertion
 		- Selection
 		- Merge

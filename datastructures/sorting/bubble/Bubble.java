@@ -1,10 +1,11 @@
 /**
- * The Bubble class provides sorting for an array using bubble sort
- * This implementation worst case makes ~ 1/2 n^2 compares
- * Best case for few passes of bubble sort are needed
- * This sorting algorithm is stable and uses O(1) space
+ * The Bubble class provides sorting an array using bubble sort,
+ * Best case for this sort is when few passes of bubble sort are needed,
+ * Stable and In-Place sort.
+ * Worst: (1/2) n^2
+ * Average: (1/2) n^2
+ * Best: n
  */
-
 public class Bubble<T extends Comparable<T>>
 {
 	/**

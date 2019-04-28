@@ -1,7 +1,12 @@
 /**
- * The insertion class implemention for sorting an array using insertion sort
- * The implemention makes ~ 1/2 n^2 compares and exchanges in the worst case
- * The sorting algorithm is stable and uses O(1) space
+ * The insertion class implemention for sorting an array using insertion sort,
+ * Not suitable for sorting large arbitrary arrays,
+ * The number of exchanges is exactly equal to the number of inversions,
+ * Use for small or partially sorted arrays,
+ * Stable and In-Place sort.
+ * Worst: (1/2) n^2
+ * Average: (1/2) n^4
+ * Best: n
  */
 import java.util.Comparator;
 public class Insertion<T extends Comparator<T>> {
