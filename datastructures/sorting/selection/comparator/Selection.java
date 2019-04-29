@@ -32,8 +32,8 @@ public class Selection <T extends Comparator<T>> {
 	}
 
 	/****************************************************************
-	 * Sorting functions 						*						    
-	****************************************************************/
+	 * Sorting functions
+	 ****************************************************************/
 	/**
 	 * Check if v < w
 	 */
@@ -53,7 +53,7 @@ public class Selection <T extends Comparator<T>> {
 	}
 	
 	/****************************************************************
-	 * Sorting check						*						    
+	 * Sorting check						    
 	 ****************************************************************/
 	/**
 	 * is the array sorted
@@ -75,7 +75,7 @@ public class Selection <T extends Comparator<T>> {
 	}
 	
 	/****************************************************************
-	 * Sorting display 						*						    
+	 * Sorting display
 	 ****************************************************************/
 	private void show(T arr[])
 	{
