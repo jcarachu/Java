@@ -19,3 +19,4 @@ My Data Structures &amp; Algorithms practice and review.
    		- Insertion
 		- Selection
 		- Merge
+		- Shell
