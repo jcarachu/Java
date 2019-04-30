@@ -1,6 +1,7 @@
 /**
  * The Shell class provides sorting using Shellsort with Knuth;s increment sequence
- * THe idea is to rearrange the array to give it the propeety taking every nth entry 
+ * The idea is to rearrange the array to give it the property that taking every hth entry
+ * could lead to a sorting array.
  * This is accomplished by finding a gap with, iterating through the gap at every segment,
  * until a single gap is left between the array a simple insertionsort will make the final 
  * evaluations but with fewer swaps, therefore tight code, and is subquadratic,
