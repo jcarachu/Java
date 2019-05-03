@@ -20,3 +20,9 @@ My Data Structures &amp; Algorithms practice and review.
 		- Selection
 		- Merge
 		- Shell
+		- Priority Queue
+			- Max
+			- Min
+			- IndexMin
+			- IndexMax
+			- Multiway
