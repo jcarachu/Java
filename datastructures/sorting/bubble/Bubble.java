@@ -6,16 +6,22 @@
  * Average: (1/2) n^2
  * Best: n
  */
-public class Bubble<T extends Comparable<T>>
+import java.util.Random;
+public class Bubble<T extends Comparable<T>> extends Sort<T>
 {
 	/**
 	 * Intialize bubble class
 	 */
-	public Bubble() {}
+	public Bubble() 
+	{
+		seed = System.currentTimeMillis();
+		random = new Random(seed);
+	}
 	
 	/**
 	 * Rearranges the array in ascending order using natural order
 	 */
+	@Override
 	public void sort(T arr[])
 	{
 		int num = arr.length;
@@ -26,7 +32,7 @@ public class Bubble<T extends Comparable<T>>
 			{
 				if (less(arr[j], arr[j-1]))
 				{
-					swap(arr, j, j-1);
+					exch(arr, j, j-1);
 					exchanges++;
 				}
 			}
@@ -34,31 +40,5 @@ public class Bubble<T extends Comparable<T>>
 				break;
 		}
 	}
-	
-	/**
-	 * Check if v < w?
-	 */
-	private boolean less(T v, T w)
-	{
-		return v.compareTo(w) < 0;
-	}
-	
-	/**
-	 * Swap arr[i] and arr[j]
-	 */
-	private void swap(T arr[], int i, int j)
-	{
-		T temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
-	
-	/**
-	 * Print the array out
-	 */
-	public void show(T arr[])
-	{
-		for (int i = 0; i < arr.length; i++)
-			System.out.println(arr[i]);
-	}
+
 }

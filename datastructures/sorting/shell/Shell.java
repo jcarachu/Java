@@ -10,13 +10,19 @@
  * Average: -
  * Best: n log3 n
  */
+import java.util.Random;
+public class Shell<T extends Comparable<T>> extends Sort<T> {
+	private Insertion<T> insertion;
 
-public class Shell<T extends Comparable<T>> extends Insertion<T> {
-	
 	/**
 	 * Initialize class
 	 */
-	public Shell() {}
+	public Shell()
+	{
+		insertion = new Insertion<T>();
+		seed = System.currentTimeMillis();
+		random = new Random(seed);
+	}
 	
 	/**
 	 * Rearranges the array in ascending order, using natural order.
@@ -30,9 +36,9 @@ public class Shell<T extends Comparable<T>> extends Insertion<T> {
 		int gap = 1;
 		// keeps incrementing until it reaches n.
 		while (gap < num/3)
-			h = 3 * h + 1;
-		System.out.println("length is: " +arr.length);
-		System.out.println("H is: "+h);
+			gap = 3 * gap + 1;
+		System.out.println("length is: " + arr.length);
+		System.out.println("H is: "+ gap);
 		// compare until reaches the first sequence
 		while (gap >= 1)
 		{
@@ -40,12 +46,13 @@ public class Shell<T extends Comparable<T>> extends Insertion<T> {
 			for (int i = gap; i < num; i++) 
 				// if index is greater than the gap and is less than its predecessor
 				// keep swapping until false, every iteration swap decrement by its gap width 
-				for (int j = i; j >=h && less(arr[j], arr[j-h]); j -=h)
-					exchange(arr, j, j-h);
-			assert isSorted(arr,h,arr.length);
+				for (int j = i; j >= gap && less(arr[j], arr[j - gap]); j -= gap)
+					exch(arr, j, j - gap);
+			assert isSorted(arr, gap, arr.length);
 			// decrement the gap further to make further comparisons
 			gap /= 3;
 		}
+		
 		assert isSorted(arr);
 	}
 	

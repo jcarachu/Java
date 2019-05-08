@@ -1,9 +1,12 @@
 public class ShellMain {
 	public static void main(String args[])
 	{
-		Integer numbers [] = { 1,9,4,7,8,5,2,3,6};
 		Shell<Integer> shell = new Shell<Integer>();
-		shell.sort(numbers);
-		shell.show(numbers);
+		Integer num[] = new Integer[100];
+		for (int i = 0; i < 100; i++)
+			num[i] = i;
+		shell.shuffle(num);
+		shell.sort(num);
+		shell.show(num);
 	}
 }

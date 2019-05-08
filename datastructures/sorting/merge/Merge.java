@@ -9,17 +9,20 @@
  * Average: n log n
  * Best: (1/2) n log n
  */
-public class Merge<T extends Comparable<T>> {
+import java.util.Random;
+public class Merge<T extends Comparable<T>> extends Sort<T> {
 	
-	private final int CUTOFF = 7;
-	private Insertion<T> insertionsort;
+	private final int CUTOFF = 8;
+	private Insertion<T> insertion;
 	
 	/**
 	 * Initializes Insertion sorting with its respective generic
 	 */
 	public Merge()
 	{
-		insertionsort = new Insertion<T>();	
+		insertion = new Insertion<T>();	
+		seed = System.currentTimeMillis();
+		random = new Random(seed);
 	}
 	
 	/**
@@ -27,11 +30,12 @@ public class Merge<T extends Comparable<T>> {
 	 * is then passed through to be sorted and or partitioned
 	 * @param arr - array to be sorted
 	 */
+	@Override
 	public void sort(T arr[])
 	{
 		T aux[] = arr.clone();
-		sort(aux, arr, 0, arr.length);
-		assert insertionsort.isSorted(arr);
+		sort(aux, arr, 0, arr.length - 1);
+		assert isSorted(arr);
 	}
 	
 	/**
@@ -46,14 +50,14 @@ public class Merge<T extends Comparable<T>> {
 	 */
 	private void sort(T src[], T dst[], int low, int high) 
 	{
-		if ((high - low) <= CUTOFF) { 
-            		insertionsort.sort(dst, low, high);
+		if ((high - low) < CUTOFF) { 
+            		insertion.sort(dst, low, high);
             		return;
         	}
 		int mid = low + (high - low) / 2;
 		sort(dst, src, low, mid);
 		sort(dst, src, mid+1, high);
-		if (!insertionsort.less(src[mid+1], src[mid])) 
+		if (!less(src[mid+1], src[mid])) 
 		{
 			System.arraycopy(src, low, dst, low, high - low + 1);
             		return;
@@ -74,29 +78,21 @@ public class Merge<T extends Comparable<T>> {
 	 */
 	private void merge(T src[], T dst[], int low, int mid, int high) 
 	{
-		assert insertionsort.isSorted(src, low, mid);
-		assert insertionsort.isSorted(src, mid+1, high);
+		assert isSorted(src, low, mid);
+		assert isSorted(src, mid+1, high);
 		int i = low, j = mid+1;
         	for (int k = low; k <= high; k++) {
             		if	(i > mid)
 				dst[k] = src[j++];
             		else if (j > high)          
 				dst[k] = src[i++];
-			else if (insertionsort.less(src[j], src[i])) 
+			else if (less(src[j], src[i])) 
 				dst[k] = src[j++];
 			else
 				dst[k] = src[i++];
         	}
 		
-		assert insertionsort.isSorted(dst, low, high);
+		assert isSorted(dst, low, high);
 	}
 	
-	/**
-	 * Displays the array's value
-	 * Uses Insertion's show method.
-	 */
-	public void show (T arr[])
-	{
-		insertionsort.show(arr);
-	}
 }
