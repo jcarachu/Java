@@ -17,12 +17,17 @@ My Data Structures &amp; Algorithms practice and review.
    - Sorting
 		- Bubble
    		- Insertion
-		- Selection
 		- Merge
-		- Shell
 		- Priority Queue
 			- Max
 			- Min
 			- IndexMin
 			- IndexMax
 			- Multiway
+		- QuickSort
+			- 2-way
+			- 3-way
+			- Bently McIlroy
+			- Dual pivot
+		- Selection
+		- Shell
