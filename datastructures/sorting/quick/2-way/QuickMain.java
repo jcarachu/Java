@@ -2,9 +2,11 @@ public class QuickMain {
 	public static void main(String args[])
 	{
 		Quick<Integer> quick = new Quick<Integer>();
-		Integer num[] = { 1,2,3,4,5,6,7,8,9};
+		Integer num[] = new Integer[100];
+		for (int i = 0; i < 100; i++)
+			num[i] = i;
 		quick.shuffle(num);
-		quick.select(num);
+		quick.sort(num);
 		quick.show(num);
 	}
 }
