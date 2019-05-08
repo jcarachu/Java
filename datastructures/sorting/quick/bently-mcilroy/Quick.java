@@ -26,6 +26,7 @@ public class Quick<T extends Comparable<T>> extends Sort<T>  {
 	public void sort(T arr[])
 	{
 		sort(arr, 0, arr.length - 1);
+		assert isSorted(arr);
 	}
 	
 	/**
