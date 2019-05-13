@@ -9,7 +9,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	/***************************************************************************************
 	 * AVL Methods
 	 **************************************************************************************/	
-	public int height(Entry element)
+	public int height(Entry<Key, Value> element)
 	{
 		if (element == null)
 			return -1;
@@ -54,10 +54,10 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	 * @return the subtree
 	 */
 	@Override
-	protected Entry put(Entry element, Key key, Value value)
+	protected Entry<Key, Value> put(Entry<Key, Value> element, Key key, Value value)
 	{
 		if (element == null)
-			return new Entry(key, value, 0, 1);
+			return new Entry<Key, Value>(key, value, 0, 1);
 		int compare = key.compareTo(element.key);
 		if (compare < 0)
 			element.left = put(element.right, key, value);
@@ -79,7 +79,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	/**
 	 * Restore the AVL tree propterty of the subtree
 	 */
-	private Entry balance(Entry element)
+	private Entry<Key, Value> balance(Entry<Key, Value> element)
 	{
 		// Right does not hold the AVL property
 		if(balanceFactor(element) < -1)
@@ -106,7 +106,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	 * a subtree with a balance factor of -1, 0, or 1 has the AVL property since the heights
 	 * of the two child subtress differ by at most one.
 	 */
-	private int balanceFactor(Entry element)
+	private int balanceFactor(Entry<Key, Value> element)
 	{
 		return height(element.left) - height(element.right);
 	}
@@ -114,9 +114,9 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	/**
 	 * Rotates the given subtree to the right
 	 */
-	private Entry rotateRight(Entry elementX)
+	private Entry<Key, Value> rotateRight(Entry<Key, Value> elementX)
 	{
-		Entry elementY = elementX.left;
+		Entry<Key, Value> elementY = elementX.left;
 		elementX.left = elementY.right;
 		elementY.right = elementX;
 		elementX.size = 1 + size(elementX.left) + size(elementX.right);
@@ -127,9 +127,9 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 	/**
 	 * Rotates the given subtree to the left
 	 */
-	private Entry rotateLeft(Entry elementX)
+	private Entry<Key, Value> rotateLeft(Entry<Key, Value> elementX)
 	{
-		Entry elementY = elementX.right;
+		Entry<Key, Value> elementY = elementX.right;
 		elementX.right = elementY.left;
 		elementY.left = elementX;
 		elementY.size = elementX.size;
@@ -155,7 +155,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 		return queue;
 	}
 	
-	private void keysInOrder(Entry element, LinkedQueue<Key> queue)
+	private void keysInOrder(Entry<Key, Value> element, LinkedQueue<Key> queue)
 	{
 		if (element == null)
 			return;
@@ -173,11 +173,11 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 		LinkedQueue<Key> queue = new LinkedQueue<Key>();
 		if (!isEmpty())
 		{
-			LinkedQueue<Entry> queue2 = new LinkedQueue<Entry>();
+			LinkedQueue<Entry<Key, Value>> queue2 = new LinkedQueue<Entry<Key, Value>>();
 			queue2.enqueue(root);
 			while (!queue2.isEmpty())
 			{
-				Entry element = queue2.dequeue();
+				Entry<Key, Value> element = queue2.dequeue();
 				queue.enqueue(element.key);
 				if (element.left != null)
 					queue2.enqueue(element.left);
@@ -213,7 +213,7 @@ public class AVLTree<Key extends Comparable<Key>, Value> extends Tree<Key, Value
 		return isAVL(root);
 	}
 	
-	private boolean isAVL(Entry element)
+	private boolean isAVL(Entry<Key, Value> element)
 	{
 		if (element == null)
 			return true;

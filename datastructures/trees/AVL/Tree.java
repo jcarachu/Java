@@ -1,34 +1,8 @@
 import java.util.NoSuchElementException;
-abstract public class Tree<Key extends Comparable<Key>, Value> {
+public abstract class Tree<Key extends Comparable<Key>, Value> extends Entry<Key, Value> {
 	
-	protected Entry root;
+	protected Entry<Key,Value> root;
 	
-	/***********************************************************************************
-	 * Entry class for AVL implementation 
-	 ***********************************************************************************/
-	protected class Entry
-	{
-		protected final Key key;		// key
-		protected 		Value value;	// associated value
-		protected 		Entry left;		// left subtree
-		protected 		Entry right;	// right subtree
-		protected 		int size;
-		protected 		int height;
-		
-		/**
-		 * Initialize element with given parameters
-		 */
-		
-		public Entry(Key key, Value value, int height, int size)
-		{
-			this.key = key;
-			this.value = value;
-			this.size = size;
-			this.height = height;
-		}
-	}
-	
-
 	/***********************************************************************************
 	 * Tree Methods 
 	 ***********************************************************************************/
@@ -50,7 +24,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	 * Provides the number of key value pairs in the binary tree at the given root entry
 	 * @param entry - the element to count the number of {key,value} associated with
 	 */
-	protected int size(Entry element)
+	protected int size(Entry<Key, Value> element)
 	{
 		if (element == null)
 			return 0;
@@ -101,13 +75,13 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	{
 		if (key == null)
 			throw new IllegalArgumentException("argument to get() is null");
-		Entry element = get(root, key);
+		Entry<Key, Value> element = get(root, key);
 		if (element == null)
 			return null;
 		return element.value;
 	}
 	
-	protected Entry get(Entry element, Key key)
+	protected Entry<Key, Value> get(Entry<Key, Value> element, Key key)
 	{
 		if (element == null)
 		{
@@ -135,7 +109,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		return min(root).key;
 	}
 	
-	protected Entry min(Entry element)
+	protected Entry<Key,Value> min(Entry<Key, Value> element)
 	{
 		if (element.left == null)
 			return element;
@@ -154,7 +128,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		return max(root).key;
 	}
 	
-	protected Entry max(Entry element)
+	protected Entry<Key, Value> max(Entry<Key, Value> element)
 	{
 		if (element.right == null)
 			return element;
@@ -177,11 +151,11 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	{
 		if (k < 0 || k >= size())
 			throw new IllegalArgumentException("argument to select() is invalid: " + k);
-		Entry element = select(root, k);
+		Entry<Key, Value> element = select(root, k);
 		return element.key;
 	}
 	
-	protected Entry select(Entry element, int k)
+	protected Entry<Key, Value> select(Entry<Key, Value> element, int k)
 	{
 		if (element == null)
 			return null;
@@ -213,7 +187,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	 * If the given key is less than the key at the root, return the rank of the key in the left subtree
 	 * If the given key is larger than the key at the root, return the subtree + 1 and the keys in the right.
 	 */
-	protected int rank(Key key, Entry element)
+	protected int rank(Key key, Entry<Key, Value> element)
 	{
 		if (element == null)
 			return 0;
@@ -237,7 +211,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	 */
 	public abstract void put(Key key, Value value);
 	
-	protected abstract Entry put(Entry element, Key key, Value value);
+	protected abstract Entry<Key, Value> put(Entry<Key, Value> element, Key key, Value value);
 	/*****************************************************************************
 	 * Tree Delete
 	 *****************************************************************************/
@@ -253,7 +227,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		assert check();
 	}
 	
-	protected Entry deleteMin(Entry element)
+	protected Entry<Key, Value> deleteMin(Entry<Key, Value> element)
 	{
 		if (element.left == null)
 			return element.right;
@@ -273,7 +247,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		assert check();
 	}
 	
-	protected Entry deleteMax(Entry element)
+	protected Entry<Key, Value> deleteMax(Entry<Key, Value> element)
 	{
 		if (element.right == null)
 			return element.left;
@@ -294,7 +268,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		assert check();
 	}
 
-	protected Entry delete(Entry element, Key key)
+	protected Entry<Key, Value> delete(Entry<Key, Value> element, Key key)
 	{
 		if (element == null)
 			return null;
@@ -308,7 +282,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 				return element.left;
 			if (element.left == null)
 				return element.right;
-			Entry temp = element;
+			Entry<Key, Value> temp = element;
 			element = min(temp.right);
 			element.right = deleteMin(temp.right);
 			element.left = temp.left;
@@ -331,14 +305,14 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 			throw new IllegalArgumentException("argument to floor() is null");
 		if (isEmpty())
 			throw new NoSuchElementException("calls floor() with empty table");
-		Entry element = floor(root, key);
+		Entry<Key, Value> element = floor(root, key);
 		if (element == null)
 			return null;
 		else
 			return element.key;
 	}
 	
-	protected Entry floor(Entry element, Key key)
+	protected Entry<Key, Value> floor(Entry<Key, Value> element, Key key)
 	{
 		if (element == null)
 			return null;
@@ -347,7 +321,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 			return element;
 		if (compare < 0)
 			return floor(element.right, key);
-		Entry temp = floor(element.right, key);
+		Entry<Key, Value> temp = floor(element.right, key);
 		if(temp != null)
 			return temp;
 		else
@@ -359,7 +333,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		return floor2(root, key, null);
 	}
 
-	protected Key floor2(Entry element, Key key, Key best)
+	protected Key floor2(Entry<Key, Value> element, Key key, Key best)
 	{
 		if (element == null)
 			return best;
@@ -383,14 +357,14 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 			throw new IllegalArgumentException("argument to ceiling() is null");
 		if (isEmpty())
 			throw new NoSuchElementException("calls ceiling() with empty table");
-		Entry element = ceiling(root, key);
+		Entry<Key, Value> element = ceiling(root, key);
 		if (element == null)
 			return null;
 		else
 			return element.key;
 	}
 	
-	protected Entry ceiling(Entry element, Key key)
+	protected Entry<Key, Value> ceiling(Entry<Key, Value> element, Key key)
 	{
 		if (element == null)
 			return null;
@@ -398,7 +372,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		if (compare == 0)
 			return element;
 		if (compare < 0){
-			Entry temp = ceiling(element.left, key);
+			Entry<Key, Value> temp = ceiling(element.left, key);
 			if (temp != null)
 				return temp;
 			else
@@ -441,7 +415,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		return queue;	
 	}
 
-	protected void keys(Entry element, LinkedQueue<Key> queue, Key low, Key high)
+	protected void keys(Entry<Key, Value> element, LinkedQueue<Key> queue, Key low, Key high)
 	{
 		if(element == null)
 			return;
@@ -482,7 +456,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 	 * Is the tree rooted at the element a binary search tree with all keys strictly between min and max
 	 * if {min} or {max} is null, treat as empty contraints
 	 */
-	protected boolean isBST(Entry element, Key min, Key max)
+	protected boolean isBST(Entry<Key, Value> element, Key min, Key max)
 	{
 		if (element == null)
 			return true;
@@ -501,7 +475,7 @@ abstract public class Tree<Key extends Comparable<Key>, Value> {
 		return isSizeConsistent(root);
 	}
 	
-	public boolean isSizeConsistent(Entry element)
+	public boolean isSizeConsistent(Entry<Key, Value> element)
 	{
 		if (element == null)
 			return true;
