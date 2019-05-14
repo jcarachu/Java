@@ -10,8 +10,8 @@ public class RedBlack<Key extends Comparable<Key>, Value> extends Tree<Key, Valu
 	public RedBlack() {}
 
 	/***************************************************************************
-    *  Entry helper methods.
-    ***************************************************************************/
+    	 *  Entry helper methods.
+   	 ***************************************************************************/
 	private boolean isRed(Entry<Key, Value> element)
 	{
 		if (element == null)
@@ -361,21 +361,3 @@ public class RedBlack<Key extends Comparable<Key>, Value> extends Tree<Key, Valu
    		return isBalanced(element.left, black) && isBalanced(element.right, black);
    	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
