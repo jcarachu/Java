@@ -4,8 +4,8 @@ public abstract class Tree<Key extends Comparable<Key>, Value> extends Entry<Key
 	protected Entry<Key, Value> root;
 
 	/***********************************************************************************
-     *  Entry helper methods.
-     ***********************************************************************************/
+     	 *  Entry helper methods.
+     	 ***********************************************************************************/
 	public boolean isEmpty()
 	{
 		return root == null;
