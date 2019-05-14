@@ -12,8 +12,6 @@ My Data Structures &amp; Algorithms practice and review.
    - Searching
    		- SequentialSearch
 		- SortedArray
-		- BinarySearchTrees
-			- Unbalanced
    - Sorting
 		- Bubble
    		- Insertion
@@ -31,3 +29,8 @@ My Data Structures &amp; Algorithms practice and review.
 			- Dual pivot
 		- Selection
 		- Shell
+   - Trees
+		- AVL
+		- BinarySearchTree
+			- Unbalanced
+		- RedBlackTree
