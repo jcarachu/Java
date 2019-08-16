@@ -34,3 +34,5 @@ My Data Structures &amp; Algorithms practice and review.
 		- BinarySearchTree
 			- Unbalanced
 		- RedBlackTree
+   ## Design Patterns
+   - Strategy
