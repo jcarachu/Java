@@ -36,3 +36,6 @@ My Data Structures &amp; Algorithms practice and review.
 		- RedBlackTree
    ## Design Patterns
    - Strategy
+	- with ducks
+   - Adapter
+	- with ducks
