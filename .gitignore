@@ -1,4 +1,5 @@
 # Compiled source #
 *.class
 *.DS_Store
+*.vscode
 sandbox_user

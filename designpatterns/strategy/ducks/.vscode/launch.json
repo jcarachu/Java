@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MiniDuckSimulator",
+            "request": "launch",
+            "mainClass": "strategy.duck.MiniDuckSimulator"
+        }
+    ]
+}

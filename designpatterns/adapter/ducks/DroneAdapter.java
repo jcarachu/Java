@@ -1,4 +1,4 @@
-package ducks;
+package designpatterns.adapter.ducks;
 
 public class DroneAdapter implements Duck{
     Drone drone;

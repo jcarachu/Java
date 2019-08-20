@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - DuckTestDrive",
+            "request": "launch",
+            "mainClass": "designpatterns.adapter.ducks.DuckTestDrive",
+            "projectName": "designpatterns_c525ed3b"
+        }
+    ]
+}
