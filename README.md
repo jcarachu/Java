@@ -39,3 +39,5 @@ My Data Structures &amp; Algorithms practice and review.
 	- with ducks
    - Adapter
 	- with ducks
+   - Observer
+   	- with no ducks 🥺
