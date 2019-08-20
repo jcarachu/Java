@@ -1,4 +1,3 @@
-package designpatterns.strategy.camera;
 
 public class Social implements ShareStrategy {
 	public void share()

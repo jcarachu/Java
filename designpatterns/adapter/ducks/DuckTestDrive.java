@@ -1,4 +1,3 @@
-package designpatterns.adapter.ducks;
 
 public class DuckTestDrive {
     public static void main(String[] args)

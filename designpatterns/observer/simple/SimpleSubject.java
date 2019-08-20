@@ -1,4 +1,4 @@
-package simple;
+
 import java.util.ArrayList;
 
 public class SimpleSubject implements Subject {

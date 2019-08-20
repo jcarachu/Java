@@ -1,4 +1,3 @@
-package designpatterns.adapter.ducks;
 
 public interface Drone {
     public void beep();

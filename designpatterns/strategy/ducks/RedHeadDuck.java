@@ -1,4 +1,3 @@
-package ducks;
 
 public class RedHeadDuck extends Duck {
 	public RedHeadDuck() {

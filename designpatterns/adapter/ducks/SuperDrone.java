@@ -1,4 +1,3 @@
-package designpatterns.adapter.ducks;
 
 public class SuperDrone implements Drone {
     public void beep()

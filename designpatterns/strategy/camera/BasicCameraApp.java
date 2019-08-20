@@ -1,4 +1,3 @@
-package designpatterns.strategy.camera;
 
 public class BasicCameraApp extends PhoneCameraApp {
 	public void edit()

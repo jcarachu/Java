@@ -1,4 +1,3 @@
-package designpatterns.adapter.ducks;
 
 public class WildTurkey implements Turkey {
     public void gobble()

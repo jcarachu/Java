@@ -1,4 +1,3 @@
-package simple;
 
 public class SimpleObserver implements Observer {
     private int value;

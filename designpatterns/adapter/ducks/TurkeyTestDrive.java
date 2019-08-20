@@ -1,4 +1,3 @@
-package designpatterns.adapter.ducks;
 
 public class TurkeyTestDrive {
     public static void main(String[] artgs)

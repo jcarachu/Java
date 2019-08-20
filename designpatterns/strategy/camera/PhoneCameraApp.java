@@ -1,4 +1,3 @@
-package designpatterns.strategy.camera;
 
 public abstract class PhoneCameraApp {
 	ShareStrategy sharestrategy;
@@ -8,5 +7,5 @@ public abstract class PhoneCameraApp {
 		this.sharestrategy = sharestrategy;
 	}
 	
-	public void share();
+	public void share(){};
 }
