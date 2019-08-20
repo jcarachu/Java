@@ -1,4 +1,4 @@
-package designpatterns.strategy.ducks;
+package ducks;
 
 public class RedHeadDuck extends Duck {
 	public RedHeadDuck() {

@@ -1,4 +1,4 @@
-package designpatterns.strategy.ducks;
+package ducks;
 
 public class Squeak implements QuackBehavior {
 	public void quack() {

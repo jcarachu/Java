@@ -1,4 +1,4 @@
-package designpatterns.strategy.ducks;
+package ducks;
 
 public class DecoyDuck extends Duck {
 	public DecoyDuck() {
