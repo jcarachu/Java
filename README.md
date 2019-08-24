@@ -36,8 +36,14 @@ My Data Structures &amp; Algorithms practice and review.
 		- RedBlackTree
    ## Design Patterns
    - Strategy
-	- with ducks
+	- with ducks 🦆
    - Adapter
-	- with ducks
+	- with ducks 🦆
    - Observer
    	- with no ducks 🥺
+   - Iterator
+	- with resturants 🥞
+   - Decorator
+	- with coffee ☕️
+   - Factory
+	- with Pizza 🍕
