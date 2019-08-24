@@ -1,5 +1,5 @@
 
-public class Example {
+public class SimpleObserverTestDrive {
     public static void main (String[] args)
     {
         SimpleSubject simplesubject = new SimpleSubject();
