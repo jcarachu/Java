@@ -1,4 +1,6 @@
 # Compiled source #
 *.class
-*.DS_Store
+
+# Misc #
 *.vscode
+.DS_Store
