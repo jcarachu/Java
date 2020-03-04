@@ -5,7 +5,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayStack<E> implements Iterable<E> {
+public class Stack<E> implements Iterable<E> {
 	private E [] arr;	// Array of elements
 	private int n;		// Number of elements
 		
@@ -31,7 +31,7 @@ public class ArrayStack<E> implements Iterable<E> {
 	/**
 	 * Initialize an empty stack.
 	 */
-	public ArrayStack()
+	public Stack()
 	{
 		arr 	= (E []) new Object[2];
 		n	= 0; 
