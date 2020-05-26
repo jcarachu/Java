@@ -6,7 +6,14 @@ public class ForkJoinSum {
 	public static void main(String[] args) {
 		System.out.println("ForkJoin sum done in :" + measureSumPref(ForkJoinSumCalculator::ForkJoinSum,10_001));
 	}
-
+	
+	/*
+	 * Reurns the fastest time measured for 10 attempts
+	 * @param adder
+	 *	the adder function to be used to measure the efficency
+	 * @param n
+	 *	the the range of numbers for the array to be populated with
+	 */
 	public static long measureSumPref(Function<Long, Long> adder, long n) {
 		long fastest = Long.MAX_VALUE;
 		for (int i = 0; i < 10; i++) {
@@ -37,12 +44,26 @@ public class ForkJoinSum {
 			this.end = end;
 		}
 		
+		/*
+		 * Wrapper method to generate an array containing the first n natural numbers using a LongStream.
+		 * From which a ForkJoinTask os created passing the generated array to the ForkJoinSumCalculator constructor
+		 * @param n	
+		 * 	the desire range
+		 * @return
+		 * 	summation of the generated array using the join/fork framework
+		 */
 		public static long ForkJoinSum(long n) {
 				long [] numbers = LongStream.rangeClosed(1, n).toArray();
 				ForkJoinTask<Long> task = new ForkJoinSumCalculator(numbers);
 				return new ForkJoinPool().invoke(task);
 		}
 		
+		/*
+		 * Simple algorithm calculating the result of a subtask when it's no longer divisible
+		 * @param
+		 * @return 
+		 * 	the summation of the range
+		 */
 		private long computeSequentially() {
 			long sum = 0;
 			for (int i = start; i < end; i++ ) {
@@ -57,7 +78,8 @@ public class ForkJoinSum {
 		 * Waits for the completion of all subtasks and returns the combine result of each subtask
 		 * 
 		 * @param
-		 * @return computed task or subtask
+		 * @return 
+		 *	computed task or subtask
 		 */
 		@Override
 		protected Long compute(){
