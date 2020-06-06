@@ -10,6 +10,7 @@ public class App {
 		System.out.println(multiplication(10,5));
 
 	}
+
 	private static int sum(int a, int b)
 	{
 		return a + b;
